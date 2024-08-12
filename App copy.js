@@ -1,11 +1,10 @@
-import React, { useState} from 'react';
-import {Text, View, Button, TextInput, Alert} from 'react-native';
+import React, { useState } from 'react';
+import { Text, View, Button, TextInput, StyleSheet } from 'react-native';
 import axios from 'axios';
 import Estilo from './App.Style';
 
-
 export default function App() {
-  const[cep, setCep] = useState('');
+  const [cep, setCep] = useState('');
   const [resultado, setResultado] = useState(null);
   const [loading, setLoading] = useState(false);
  
@@ -24,10 +23,10 @@ export default function App() {
 
   return (
     <View style={Estilo.container}>
-      <Text style={Estilo.title}>Consulta Cep </Text>   
+      <Text style={Estilo.title}>Consulta CEP</Text>   
       <TextInput 
         style={Estilo.inputText}
-        placeholder='Digite aqui CEP'
+        placeholder='Digite aqui o CEP'
         value={cep}
         onChangeText={setCep}
         keyboardType='numeric'
@@ -38,7 +37,7 @@ export default function App() {
         <View style={Estilo.resultado}>
           <Text>CEP: {resultado.cep}</Text>
           <Text>Logradouro: {resultado.logradouro}</Text>
-          <Text>Ba+irro: {resultado.bairro}</Text>
+          <Text>Bairro: {resultado.bairro}</Text>
           <Text>Cidade: {resultado.localidade}</Text>
           <Text>UF: {resultado.uf}</Text>
         </View>
@@ -48,5 +47,4 @@ export default function App() {
       )}
     </View>
   )
-  
 }
